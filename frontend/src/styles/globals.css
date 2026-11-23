@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Orbitron:wght@500;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  @apply border-white/5;
+}
+
+body {
+  @apply bg-bg text-textPrimary font-body antialiased overflow-x-hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+}
+
+.neon-glow {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 60px rgba(0, 240, 255, 0.1);
+}
+
+.animated-link {
+  @apply relative inline-block;
+}
+
+.animated-link::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-primary transition-transform duration-300;
+}
+
+.animated-link:hover::after {
+  @apply scale-x-100;
+}
+
+.section-heading {
+  clip-path: inset(100% 0 0 0);
+}
+
+.scan-line {
+  animation: scan 1.5s ease-in-out infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.dash-border {
+  border: 2px dashed rgba(0, 240, 255, 0.45);
+  animation: dashMove 6s linear infinite;
+}
+
+@keyframes dashMove {
+  to {
+    border-top-color: rgba(0, 240, 255, 0.9);
+  }
+}
